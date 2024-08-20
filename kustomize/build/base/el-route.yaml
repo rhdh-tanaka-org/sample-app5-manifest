@@ -1,0 +1,14 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: webhook-sample-app5-el 
+spec:
+  tls:
+    termination: edge
+  to:
+    kind: Service
+    name: el-sample-app5-listener
+    weight: 100
+  port:
+    targetPort: http-listener
+  wildcardPolicy: None
